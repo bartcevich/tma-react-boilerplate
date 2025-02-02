@@ -36,7 +36,10 @@ export function telegramInit(debug: boolean): void {
     swipeBehavior.mount();
   }
 
-  if (swipeBehavior.isMounted() && swipeBehavior.disableVertical.isAvailable()) {
+  if (
+    swipeBehavior.isMounted() &&
+    swipeBehavior.disableVertical.isAvailable()
+  ) {
     swipeBehavior.disableVertical();
   }
 
@@ -49,9 +52,9 @@ export function telegramInit(debug: boolean): void {
         viewport.expand();
       }
 
-      if (viewport.requestFullscreen.isSupported()) {
-        await viewport.requestFullscreen();
-      }
+      // if (viewport.requestFullscreen.isSupported()) {
+      //   await viewport.requestFullscreen();
+      // }
     })
     .catch((e) => {
       console.error("Something went wrong mounting the viewport", e);

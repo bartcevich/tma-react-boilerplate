@@ -1,9 +1,9 @@
 import { Header } from "./header";
-
+import { Footer } from "./footer";
 import { create } from "zustand";
 import { ReactNode } from "react";
-import { cn } from "@/lib/utils";
-import { useMediaQuery } from "@/hooks/use-media-query";
+// import { cn } from "@/lib/utils";
+// import { useMediaQuery } from "@/hooks/use-media-query";
 
 export interface LayoutStoreProps {
   bgImage?: ReactNode;
@@ -28,30 +28,21 @@ export const useLayoutStore = create<LayoutStoreProps & LayoutStoreActions>(
 );
 
 export const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
-  const { bgColor, bgImage, isHeaderDisabled } =
-    useLayoutStore();
+  // const { bgColor, isHeaderDisabled } = useLayoutStore();
 
-  const isHeightTale = useMediaQuery("(min-height: 680px)");
+  // const isHeightTale = useMediaQuery("(min-height: 680px)");
 
   return (
     <div
-      style={{ backgroundColor: bgColor }}
-      className="h-dvh flex relative flex-col pt-[var(--tg-viewport-safe-area-inset-top)]"
+      // style={{ backgroundColor: bgColor }}
+      className="h-dvh bg-black flex relative flex-col pt-[var(--tg-viewport-safe-area-inset-top)]"
     >
-      {!isHeaderDisabled && <Header />}
+      {/* {!isHeaderDisabled && } */}
+      <Header />
       <div className="container pb-4 flex-1 overflow-auto overflow-x-hidden relative z-10 max-w-lg flex flex-col">
-        {bgImage && (
-          <div
-            className={cn(
-              "absolute opacity-50 -left-1 -right-1 -top-[var(--tg-viewport-content-safe-area-inset-top)]",
-              !isHeightTale && "-top-16"
-            )}
-          >
-            {bgImage}
-          </div>
-        )}
         {children}
       </div>
+      <Footer />
     </div>
   );
 };
