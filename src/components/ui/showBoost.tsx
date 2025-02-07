@@ -1,4 +1,3 @@
-// import React from "react";
 import BoosterHeader from "./boosterHeader";
 import BoosterProfileSummary from "./boosterProfileSummary";
 import BoosterCard from "./boosterCard";

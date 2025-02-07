@@ -24,6 +24,18 @@ export default {
       "3xl": "2rem", // 32px
       "4xl": "2.5rem", // 40px
     },
+    fontFamily: {
+      'display': [
+        '"SF Pro Display"',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+      ]
+    },
 
     extend: {
       spacing: {

@@ -39,6 +39,9 @@ export const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
     >
       {/* {!isHeaderDisabled && } */}
       <Header />
+      <div className="relative w-full top-[-8px] flex justify-center ">
+        <div className="fixed h-[726px] opacity-50 shadow-[0_0_300px_90px_rgba(103,58,173,1)]"></div>
+      </div>
       <div className="container pb-4 flex-1 overflow-auto overflow-x-hidden relative z-10 max-w-lg flex flex-col">
         {children}
       </div>

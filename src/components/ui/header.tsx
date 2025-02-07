@@ -6,7 +6,7 @@ export const Header = () => {
 
   return (
     <div className="container max-w-lg pt-[var(--tg-viewport-content-safe-area-inset-top)]">
-      <header className="pt-1 pb-4 flex items-center justify-between relative text-white">
+      <header className="bg-black z-20 pt-1 pb-4 flex items-center justify-between relative text-white">
         {/* {t("header")} */}
         <NavLink to="/shop">shop</NavLink>
         <NavLink to="/tasks">tasks</NavLink>

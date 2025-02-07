@@ -1,5 +1,6 @@
 "use client";
 
+import { UserProfile } from "./userProfile";
 import { useState } from "react";
 import { Settings, X } from "lucide-react";
 // import Image from "next/image"
@@ -9,6 +10,18 @@ export default function ShowProfile() {
 
   return (
     <div className="min-h-screen bg-[#0a0a1a] text-white font-sans p-4">
+      <UserProfile
+        username={"Roger32"}
+        avatarUrl={
+          "https://cdn.builder.io/api/v1/image/assets/TEMP/23c102c55d98715241148643a53f79f8e6269189ff5caffd0e3759c932d71eb0?placeholderIfAbsent=true&apiKey=f523ac3fd8ad487bb4aeee4faeaa034f"
+        }
+        walletAddress={"QTdA..fg3N"}
+        walletIconUrl={
+          "https://cdn.builder.io/api/v1/image/assets/TEMP/16b35c40417e4f27e22008baf03c4a708aa1fbfedc872dfd5a58bf317e06287e?placeholderIfAbsent=true&apiKey=f523ac3fd8ad487bb4aeee4faeaa034f"
+        }
+        balance={"321,976"}
+        level={25}
+      />
       {/* Profile Card */}
       <div className="bg-[#1a1a2e] rounded-3xl p-6 relative">
         <div className="flex items-start justify-between">
