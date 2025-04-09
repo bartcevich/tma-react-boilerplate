@@ -2,14 +2,21 @@
 
 import { UserProfile } from "./userProfile";
 import { useState } from "react";
-import { Settings, X } from "lucide-react";
+import { X } from "lucide-react";
+import walletIconSvg from "@/assets/walletIcon.svg";
 // import Image from "next/image"
 
 export default function ShowProfile() {
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  let background = "";
+  if (!isModalOpen) {
+    background = "rgba(118, 78, 207, 1)";
+  } else {
+    background = "rgba(118, 78, 207, 0.5)";
+  }
 
   return (
-    <div className="min-h-screen bg-[#0a0a1a] text-white font-sans p-4">
+    <div className="w-full max-w-[393px]  min-h-screen text-white font-sans p-4">
       <UserProfile
         username={"Roger32"}
         avatarUrl={
@@ -22,65 +29,51 @@ export default function ShowProfile() {
         balance={"321,976"}
         level={25}
       />
-      {/* Profile Card */}
-      <div className="bg-[#1a1a2e] rounded-3xl p-6 relative">
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-4">
-            {/* <Image src="/placeholder.svg" alt="Profile avatar" width={64} height={64} className="rounded-full" /> */}
-            <div className="space-y-2">
-              <h1 className="text-2xl font-semibold">Roger32</h1>
-              <button className="bg-[#7c3aed] text-white px-4 py-2 rounded-full flex items-center gap-2">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"
-                    fill="currentColor"
-                  />
-                </svg>
-                Connect
-              </button>
-            </div>
-          </div>
-          <button className="p-2 bg-[#2a2a3e] rounded-full">
-            <Settings className="w-6 h-6" />
-          </button>
-        </div>
-
-        {/* Balance and Level */}
-        <div className="flex justify-between mt-6">
-          <div>
-            <p className="text-gray-400">Balance</p>
-            <p className="text-2xl font-bold">0 Opa</p>
-          </div>
-          <div className="text-right">
-            <p className="text-gray-400">Level</p>
-            <p className="text-2xl font-bold">0</p>
-          </div>
-        </div>
-      </div>
 
       {/* Inventory Section */}
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <h2 className="text-2xl text-gray-400">Inventory</h2>
         <div className="h-40 bg-[#1a1a2e] rounded-3xl mt-4"></div>
-      </div>
+      </div> */}
 
       {/* Connect Wallet Modal */}
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="w-full my-[25px] text-white py-4 rounded-2xl text-xl flex items-center justify-center gap-2"
+        style={{
+          backgroundColor: `${background}`,
+        }}
+      >
+        Connect Wallet
+        <img
+          loading="lazy"
+          src={walletIconSvg}
+          alt="wallet icon"
+          className="object-contain shrink-0 w-[14px] h-[14px] "
+        />
+      </button>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-end">
-          <div className="bg-[#1a1a2e] w-full rounded-t-[2rem] p-6 space-y-6">
+        <div className="inset-0 bg-black/50 flex items-end">
+          <div className=" max-w-[393px] w-full h-[400px] bg-[#1a1a2e] w-full rounded-t-[2rem] p-4">
             <div className="flex justify-end">
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="p-2 bg-[#2a2a3e] rounded-full"
+                className="p-1 bg-[#2a2a3e] rounded-full"
               >
-                <X className="w-6 h-6" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-semibold">Connect your wallet</h2>
-              <p className="text-gray-400 text-lg">
-                Open Wallet in Telegram or select your wallet to connect
+            <div className="text-center ">
+              {/* space-y-4 */}
+              <h2 className="mb-[15px] text-white text-[24px] font-medium leading-[32px] tracking-[1px] font-display">
+                Connect your wallet
+              </h2>
+              <p className="mb-[10px] text-white text-[14px] font-regular leading-[17px] font-display">
+                Open Wallet in Telegram or select
+              </p>
+              <p className="mb-[10px] text-white text-[14px] font-regular leading-[17px] font-display">
+                your wallet to connect
               </p>
             </div>
 

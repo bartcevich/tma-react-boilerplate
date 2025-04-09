@@ -1,5 +1,7 @@
-"use client";
+import { useState, useEffect } from "react";
 import Image from "@/assets/ForFriends.webp";
+import { LOCALES } from "@/i18n/locales";
+import { messages } from "../../i18n/messages";
 
 const cardsData = [
   {
@@ -14,7 +16,21 @@ const cardsData = [
   },
 ];
 
+const getBrowserLocale = () => {
+  // const language = navigator.language;
+  const language = "en-US";
+  console.log(language, Object.values(LOCALES).includes(language));
+  return Object.values(LOCALES).includes(language) ? language : LOCALES.ENGLISH;
+};
+
 export default function ShowFriends() {
+  const [currentLocaleState, setCurrentLocaleState] = useState(LOCALES.ENGLISH);
+
+  useEffect(() => {
+    const browserLocale = getBrowserLocale();
+    setCurrentLocaleState(browserLocale);
+  }, []);
+
   return (
     <div className="flex flex-col items-center py-1 w-full aspect-[0.547]">
       <img
@@ -26,7 +42,7 @@ export default function ShowFriends() {
         className="max-w-[361px] w-full mt-6 text-white text-[17px] font-medium 
         leading-[20.29px] text-left font-display"
       >
-        Invite link
+        {messages[currentLocaleState].Friends_invite}
       </div>
       <div
         className="mt-2 max-w-[361px] w-full h-[64px] flex justify-between px-[16px] py-6 text-white rounded-2xl"

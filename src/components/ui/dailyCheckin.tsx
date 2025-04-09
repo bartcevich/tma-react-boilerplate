@@ -17,34 +17,44 @@ const rewards = [
 
 export const DailyCheckin: React.FC = () => {
   return (
-    <div className="flex overflow-hidden flex-col px-6 py-12 text-white rounded-3xl bg-slate-900 bg-opacity-70 max-w-[361px]">
-      <div className="flex flex-col items-start text-center">
-        <div className="text-2xl font-medium tracking-tight leading-none text-center w-full">
-          Daily check-in on TON
-        </div>
-        <div className="mt-3 text-base tracking-tight leading-5">
-          Make a small daily TON transaction (just a few <br />
-          centa) and receive massive rewards!
-        </div>
-      </div>
-      <div className="flex gap-2 items-center mt-10 text-3xl font-medium tracking-tight leading-none text-center">
-        {rewards.map((reward, index) => (
-          <div
-            key={index}
-            className={index === 0 ? "w-[155px]" : "flex-1 shrink basis-0"}
-          >
-            <RewardCard {...reward} />
-          </div>
-        ))}
-      </div>
-      <button
-        className="gap-2 self-stretch px-6 py-4 mt-6 text-lg font-semibold bg-violet-600 rounded-xl"
-        onClick={() => {}}
-        tabIndex={0}
-        aria-label="Complete transaction"
+    <div
+      className="fixed p-[50px] max-w-[550px] w-full h-[900px] mx-auto z-[25] inset-0 bg-black/50
+    flex flex-col bg-slate-900 bg-opacity-70"
+    >
+      <div
+        className=" max-w-[361px] h-[433px] top-[110px] mx-auto inset-0 bg-black/50 
+      flex flex-col px-[16] py-12 text-white rounded-3xl bg-slate-900"
       >
-        Complete transaction
-      </button>
+        {/* // <div className="flex overflow-hidden flex-col px-6 py-12 text-white rounded-3xl bg-slate-900 bg-opacity-70 max-w-[361px]"> */}
+        <div>
+          <div className="text-2xl font-medium tracking-tight leading-none text-center w-full">
+            Daily check-in on TON
+          </div>
+          <div className="mt-3 text-base tracking-tight leading-5">
+            Make a small daily TON transaction (just a few <br />
+            centa) and receive massive rewards!
+          </div>
+        </div>
+        <div className="flex gap-2 items-center mt-10 text-3xl font-medium tracking-tight leading-none text-center">
+          {rewards.map((reward, index) => (
+            <div
+              key={index}
+              className={index === 0 ? "w-[155px]" : "flex-1 shrink basis-0"}
+            >
+              <RewardCard {...reward} />
+            </div>
+          ))}
+        </div>
+        <button
+          className="gap-2 self-stretch px-6 py-4 mt-6 text-lg font-semibold bg-violet-600 rounded-xl"
+          onClick={() => {}}
+          tabIndex={0}
+          aria-label="Complete transaction"
+        >
+          Complete transaction
+        </button>
+      </div>
     </div>
+    // </div>
   );
 };

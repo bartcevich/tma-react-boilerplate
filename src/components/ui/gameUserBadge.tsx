@@ -10,7 +10,14 @@ export const UserBadge: React.FC<UserBadgeProps> = ({
   avatarSrc,
 }) => (
   // export const UserBadge = ({ username: str, avatarSrc }) => (
-  <div className="flex items-start py-1 pr-3.5 pl-1 font-medium text-center bg-slate-900 bg-opacity-70 min-h-[40px] rounded-[48px]">
+  <div
+    className="flex items-start py-1 pr-3.5 pl-1 font-medium text-center  min-h-[40px] rounded-[48px]"
+    style={{
+      backgroundColor: "rgba(16,26,51, 0.7)",
+      backdropFilter: "blur(92px)",
+      boxShadow: "inset 0 0 10px rgba(255, 255, 255, 0.23)",
+    }}
+  >
     <div className="flex gap-2 items-center">
       <img
         loading="lazy"
